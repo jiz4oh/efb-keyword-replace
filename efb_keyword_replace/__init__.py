@@ -49,6 +49,9 @@ class KeywordReplaceMiddleware(Middleware):
         if not replacements:
             return text
 
+        if not text:
+            return text
+
         # 按键的长度降序排序，确保优先替换更长的关键字
         # 例如，先替换 "apple pie" 再替换 "apple"
         sorted_keywords = sorted(replacements.keys(), key=len, reverse=True)
